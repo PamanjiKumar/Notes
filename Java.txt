@@ -1,0 +1,807 @@
+Method Overloading
+
+
+Same method name with diff parameters and diff return types
+
+public int max(int a,int b)
+
+public double max(double a,double b)
+
+public int max(int a,int b,int c)
+
+
+Variable arguments
+
+void show(int... x)
+{
+	for(int i:x){
+		s.o.pln(i);
+	}
+}
+
+show(10,20,30,40)
+
+
+
+Object-Oriented Programming 
+
+➢ Principles Of Object-Oriented Programming
+ 
+• Principles	of	Object-Oriented	programming	are	
+
+• 1.Abstraction.	
+• 2.Encapsulation.	
+• 3.Inheritance.	
+• 4.Polymorphism.	
+
+▪ 1.Abstraction	
+
+• Abstraction	means	hiding	internal	details	and	showing	the	required	
+things.
+
+▪ 2.Encapsulation	
+
+• Encapsulation	is	the	process	of	grouping	data	in	a	single	section.
+
+▪ 3.Inheritance	
+
+• Inheritance	means	designing	an	object	or	a	class	by	re-using	the properties	of	the	existing	class	and	object.
+
+• Inheritance	is	same	as	specialization.	
+
+For Example 
+
+Consider a man driving a car, while driving he focus on using of steering, gear, 
+
+accelerator etc.
+
+He does not require to know the inner mechanism of the car.
+
+For	Example		
+
+Complete	television	is	single	box	where	all	the	mechanism	are	hidden	inside the	box	all	are	capsuled.
+
+▪ 4.Polymorphism	
+
+• Polymorphism	is	a	concept	in	which	we	can	execute	a	single	operation	in	different	ways.
+
+• polymorphism	is	same	as	generalization.
+
+
+
+➢ Class	VS	Object	
+
+ • Object	is	deEined	in	terms	of	its	properties	and	behaviour.
+
+• Operation	of	behaviours	will	affect	the	properties.	
+   
+• Anything	in	the	world	can	be	deEined	in	the	terms	of	properties	and	behaviour.	
+
+• For	a	single	class	wee	can	have	many	objects.	
+
+• Multiple	number	of	objects	can	be	created	by	one	single	class			
+
+Example	Program	
+
+For	Example		
+
+A old	style	television	(idiot box)	is	transformed	with	extra	features into slim and	smart	television	where	it re-used the properties of old television.
+
+For example
+
+A house or a car or a television is an object but the design or blueprint of the object is a class
+
+class Television 
+{ 
+ private int channel; 
+ private int volume; 
+ 
+ public void changechannel() 
+ public void changevolume() 
+} 
+class test 
+{ 
+ public static void main() 
+ { 
+ Television t=new Television(); 
+ t.changechannel(10); 
+ } 
+}
+
+In	java	there	is	an	area	inside main	memory which	is	known	as method	area	which	contains	all	the	methods.
+
+• The	definitions	of the will	be present inside the heap,as the objects will be based on the definitions so the objects are also present in heap
+
+class Rectangle 
+{ 
+ public int length; 
+ public int breadth; 
+ public int area() 
+ { 
+ return length*breadth; 
+ } 
+ public int perimeter () 
+ { 
+ Return 2*(length+breadth); 
+ } 
+class test 
+{ 
+ public static void main() 
+ { 
+ Rectangle r=new Rectangle(); 
+ } 
+}
+
+In	above	example	there	is	given	two	data	members	length	and	
+breadth	which	are	the	properties	of	the	class.	
+• And	the	area	and	perimeter	is	the	method	of	the	class	where	both	the	
+methods	are	performing	the	operations	on	the	given	data.	
+• For	hiding	the	data,	the	data	members	will	have	the	stricter	(private)	
+success	modiEier.	
+• So,	when	the	data	is	made	private,	we	can’t	access	that	data	outside	
+the	class.		
+
+➢ Types of Properties
+
+• Read	and	writable	property.	
+• getLength()	method	will	allow	us	to	read	the	property	and	
+setLength()	method	will	allow	us	to	write	the	property	.	
+• Read	only	property.	
+• When	there	is	no	modiEication	to	the	property	then	read	only	
+property	is	used.		
+• Write	only	property.	
+
+class Rectangle 
+{ 
+ public int length; 
+ public int breadth; 
+ public int area() 
+ { 
+ return length*breadth; 
+ } 
+ public int perimeter () 
+ { 
+ Return 2*(length+breadth); 
+ } 
+class test 
+{ 
+ public static void main() 
+ { 
+ Rectangle r=new Rectangle(); 
+ } 
+}
+
+• Only	set	method	is	used	for	writing	the	property	where	no	get	
+method	is	used.	
+
+➢ Constructors 
+• 	A	method	is	required	for	Initialization	of	properties	at	the	time	of	
+construction	of	an	object,	this	method	is	known	as	constructor.	
+• Constructor	 is	a	method	of	class	called	when	an	object	is	created.	
+• Every	class	will	have	a	default	constructor	provided	by	java	compiler.	
+• Constructor	will	not	have	any	return	type.		
+• There	are	two	types	of	constructors		
+o 1.	parameterized	
+o 2.	Non-parameterized.	
+• Non-parameterized	constructors	is	a	replacement	for	default	
+constructors.	
+• Constructors	can	be	overloaded
+
+In Java, constructors are special methods used to initialize objects. They have the same name as the class and do not have a return type. Here are the main types of constructors:
+
+🧱 1. Default Constructor
+A constructor with no parameters.
+If no constructor is defined, Java provides one automatically.
+
+public class Student {
+    public Student() {
+        System.out.println("Default constructor called");
+    }
+}
+
+
+🧱 2. Parameterized Constructor
+A constructor that takes arguments to initialize fields.
+
+public class Student {
+    String name;
+    int age;
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+
+🧱 3. No-Argument Constructor
+Similar to the default constructor, but explicitly defined by the programmer.
+
+public class Student {
+    public Student() {
+        System.out.println("No-arg constructor");
+    }
+}
+
+
+🧱 4. Copy Constructor
+Used to create a new object by copying another object.
+
+public class Student {
+    String name;
+
+    public Student(Student s) {
+        this.name = s.name;
+    }
+}
+
+
+ABSTRACT CLASS VS INTERFACES
+
+Feature				Abstract Class									Interface
+
+Purpose		To share common behavior and code among related classes	To define a contract that classes must follow
+
+Inheritance			Supports single inheritance only					Supports multiple inheritance
+
+Keyword Used				abstract									interface
+
+Method Types	Can have abstract and concrete methods				Can have abstract, default, and static methods (since Java 8)
+
+Field Types		Can have instance variables (any access modifier)				Only public static final constants
+
+Access Modifiers	Can use private, protected, public						 All methods are public by default
+
+Constructors		✅ Yes, can have constructors							❌ No constructors allowed
+
+Multiple Inheritance	❌ Not supported							✅ Supported (a class can implement multiple interfaces)
+
+
+When to Use	When you want to share code (fields/methods) across related classes	When you want to define a common behavior without enforcing inheritance
+
+Example Use Case	Base class for different types of employees with shared logic	Interface for Drivable, Flyable, etc., that multiple classes can implement
+
+
+this VS super
+
+In Java, this and super are keywords used to refer to objects — but they serve different purposes. Here's a clear comparison:
+
+✅ this Keyword
+
+Feature	Description
+
+Refers to	The current class instance
+
+Use Cases	- Access current class fields and methods
+
+- Resolve naming conflicts between instance variables and parameters
+
+- Call another constructor in the same class
+
+Example	
+
+public class Student {
+    String name;
+
+    public Student(String name) {
+        this.name = name; // 'this' refers to the current object's field
+    }
+}
+
+
+super Keyword
+
+Feature	Description
+
+Refers to	The parent (superclass) object
+
+Use Cases	- Access superclass fields and methods
+		- Call superclass constructor
+
+
+
+public class Person {
+    String name = "John";
+}
+
+public class Student extends Person {
+    String name = "Alice";
+
+    public void printNames() {
+        System.out.println(this.name);  // Alice
+        System.out.println(super.name); // John
+    }
+}
+
+
+Keyword		Refers To				Used For
+
+this		Current class instance	Access current class members, resolve variable conflicts
+
+super		Parent class instance	Access parent class members, call parent constructor
+
+
+Method Overriding
+
+Method Overriding is a feature in Java that allows a subclass to provide a specific implementation of a method that is already defined in its superclass.
+
+✅ Key Points:
+
+Feature	Description
+
+Purpose	To change or extend the behavior of a method from the parent class
+
+Signature	Method name, return type, and parameters must be the same
+
+Access	The overriding method cannot have a more restrictive access modifier
+
+Annotation	@Override is used for clarity and error checking
+
+Runtime	It is resolved at runtime (polymorphism)
+
+
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+
+Dynamic Method Dismatch
+
+It is useful for achieving runtime polymorphism using the method overriding concept.
+
+It takes reference from the parent class and creates a object of child class
+
+
+Exceptional Handling
+
+Exception handling in Java is a powerful mechanism that allows developers to manage runtime errors, ensuring the normal flow of the application is maintained.
+
+ Here's a breakdown of how it works:
+
+1. What is an Exception?
+
+An exception is an event that disrupts the normal flow of the program. It is an object which is thrown at runtime.
+
+
+2. Types of Exceptions
+
+Java exceptions are categorized into three types:
+
+Checked Exceptions: These are checked at compile-time (e.g., IOException, SQLException).
+
+Unchecked Exceptions: These occur at runtime (e.g., ArithmeticException, NullPointerException).
+
+Errors: These are serious issues not meant to be caught (e.g., OutOfMemoryError, StackOverflowError).
+
+There are three types of errors
+
+-->Syntax errors -- it is handled by compiler
+
+-->Logical errors -- by tracing and debugging
+
+-->Runtime errors -- to handle these errors we go for exceptional handling
+
+
+3. Exception Handling Keywords
+
+Java provides five keywords for exception handling:
+
+try: Defines a block of code to be tested for errors.
+
+catch: Defines a block of code to handle the error.
+
+finally: Defines a block of code that will always execute, regardless of an exception. -->clean up code
+
+throw: Used to explicitly throw an exception.
+
+throws: Declares exceptions a method might throw.
+
+
+4. Basic Syntax Example
+
+public class Example {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0; // This will throw ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero!");
+        } finally {
+            System.out.println("This block always executes.");
+        }
+    }
+}
+
+Object is the mother class for all the classes in java
+
+Throwable class extends from Object.
+
+Exception and Errors are two classes which are extended from Throwable
+
+It ensures that each resource is closed at the end of the statement. A resource is an object that must be closed after the program is finished with it, and it must implement the AutoCloseable interface (or Closeable).
+
+5. Custom Exceptions
+
+You can create your own exceptions by extending the Exception class:
+
+
+6. Best Practices
+
+Catch specific exceptions first.
+
+Avoid catching Exception or Throwable unless necessary.
+
+Always clean up resources in finally or use try-with-resources.
+
+Log exceptions for debugging.
+
+
+Multi Threading
+
+Multithreading is a core concept in Java that allows concurrent execution of two or more threads.
+
+A thread is a lightweight subprocess, the smallest unit of processing. 
+
+It helps in performing multiple tasks simultaneously, improving the performance of applications, especially on multi-core systems.
+
+Why Use Multithreading?
+
+Better CPU utilization
+
+Improved application performance
+
+Useful for tasks like background processing, animations, real-time updates, etc.
+
+🛠️ Creating Threads in Java
+
+There are two main ways to create threads:
+
+1. By Extending the Thread class
+
+
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread is running...");
+    }
+
+    public static void main(String[] args) {
+        MyThread t1 = new MyThread();
+        t1.start(); // starts the thread
+    }
+}
+
+2. By Implementing the Runnable interface
+
+class MyRunnable implements Runnable {
+    public void run() {
+        System.out.println("Runnable thread is running...");
+    }
+
+    public static void main(String[] args) {
+        Thread t1 = new Thread(new MyRunnable());
+        t1.start();
+    }
+}
+
+Useful Thread Methods
+
+start() – Starts the thread.
+
+run() – Contains the code to be executed.
+
+sleep(ms) – Pauses the thread for a given time.
+
+join() – Waits for a thread to die.
+
+isAlive() – Checks if the thread is still running.
+
+	  start		     run			    end
+new ------------->ready--------------->running--------------->terminated
+
+in running  there is wait state , wait and notify
+		there is timed wait state , sleep/wait
+		there is blocked state , request I/O
+
+
+Priorities in thread
+
+Thread.MIN_PRIORITY = 1
+
+Thread.NRML_PRIORITY = 5
+
+Thread.MAX_PRIORITY = 10
+
+Some important methods
+
+.getId()
+
+.getName()
+
+.getPriority()
+
+.isAlive()
+
+.getState()
+
+
+Daemon Threads in Java
+
+A daemon thread in Java is a background thread that provides services to user threads. 
+
+It runs in the background and does not prevent the JVM from exiting once all user (non-daemon) threads have finished.
+
+✅ Key Characteristics of Daemon Threads
+
+They are low-priority threads.
+
+JVM exits when only daemon threads are running.
+
+Commonly used for background tasks like garbage collection, monitoring, etc.
+
+Must be set as daemon before calling start().
+
+
+Synchronization
+
+🔐 Synchronization in Java
+
+Synchronization in Java is a mechanism that ensures that only one thread can access a resource at a time, preventing race conditions and ensuring data consistency in multithreaded applications.
+
+🧠 Why Synchronization is Needed
+
+In a multithreaded environment, multiple threads may try to access and modify shared resources (like variables, files, or databases) simultaneously.
+
+Without synchronization, this can lead to:
+
+Inconsistent data
+
+Unexpected behavior
+
+
+Hard-to-find bugs
+
+Ways to Achieve Synchronization in Java
+
+1. Synchronized Method
+
+
+class Counter {
+    private int count = 0;
+
+    public synchronized void increment() {
+        count++;
+    }
+
+    public int getCount() {
+        return count;
+    }
+}
+
+
+Here, the increment() method is synchronized, so only one thread can execute it at a time.
+
+2. Synchronized Block
+
+
+class Counter {
+    private int count = 0;
+
+    public void increment() {
+        synchronized (this) {
+            count++;
+        }
+    }
+
+    public int getCount() {
+        return count;
+    }
+}
+
+This is useful when you want to synchronize only part of a method, improving performance.
+
+3. Static Synchronization
+
+Used when threads access static data.
+
+class Counter {
+    private static int count = 0;
+
+    public static synchronized void increment() {
+        count++;
+    }
+}
+
+🧱 Locking Mechanism
+
+Java uses intrinsic locks (or monitors) for synchronization.
+
+Every object has a lock, and a thread must acquire the lock before executing a synchronized method/block.
+
+⚠️ Common Issues
+
+Deadlock: Two or more threads waiting for each other to release locks.
+
+Starvation: A thread never gets access to the resource.
+
+Reduced performance: Overuse of synchronization can slow down the application.
+
+
+Important terminologies
+
+Here are clear and concise definitions for each of the key multithreading and concurrency concepts you asked about:
+
+🔁 1. Resource Sharing
+
+Definition:
+
+The practice of multiple threads or processes accessing and using the same resource (e.g., memory, files, printers) to perform tasks. Proper management is essential to avoid conflicts or data corruption.
+
+⚠️ 2. Critical Section
+
+Definition:
+
+A part of the program where shared resources are accessed. Only one thread should execute in the critical section at a time to prevent inconsistent data.
+
+🔒 3. Mutual Exclusion
+
+Definition:
+
+A principle that ensures that only one thread can access a critical section or shared resource at a time. It prevents race conditions and ensures data integrity.
+
+🔐 4. Locking / Mutex (Mutual Exclusion Object)
+
+Definition:
+
+A synchronization mechanism used to enforce mutual exclusion. A thread must acquire the lock before entering the critical section and release it after exiting.
+
+🚦 5. Semaphore
+
+Definition:
+
+A signaling mechanism used to control access to a shared resource. It maintains a set count and allows a limited number of threads to access the resource concurrently.
+
+Binary Semaphore (0 or 1): Like a mutex.
+
+Counting Semaphore: Allows multiple threads.
+
+🧭 6. Monitor
+
+Definition:
+
+A high-level synchronization construct that combines mutual exclusion and condition variables. In Java, every object can act as a monitor using synchronized methods or blocks.
+
+⚡ 7. Race Condition
+
+Definition:
+
+A situation where the outcome of a program depends on the timing or sequence of threads accessing shared resources. It leads to unpredictable and incorrect behavior.
+
+📬 8. Inter-Thread Communication
+
+Definition:
+
+A mechanism that allows threads to communicate and coordinate with each other, typically using methods like wait(), notify(), and notifyAll() in Java. It helps threads work together efficiently.
+ 
+🔧 Key Methods (from Object class)
+Method	Description
+
+wait()	Causes the current thread to wait until another thread calls notify() or notifyAll() on the same object.
+
+notify()	Wakes up a single thread that is waiting on the object.
+
+notifyAll()	Wakes up all threads that are waiting on the object.
+
+
+
+Lambda Expressions
+
+Lambda expressions in Java were introduced in Java 8 and are a powerful feature that allows you to write anonymous functions
+
+—functions without a name—more concisely. 
+
+They are primarily used to implement functional interfaces, which are interfaces with a single abstract method.
+
+Basic Syntax
+
+(parameters) -> expression
+
+
+
+
+In Java, Streams are a powerful abstraction introduced in Java 8 that allow you to process collections of data in a functional style.
+
+They are part of the java.util.stream package and are especially useful for performing bulk operations like filtering, mapping, and reducing.
+
+🔹 What is a Stream?
+
+A Stream is a sequence of elements that supports sequential and parallel aggregate operations. 
+
+It does not store data, but rather conveys elements from a source such as a collection, an array, or an I/O channel.
+
+🔹 Key Features
+
+Declarative: More readable and concise code
+
+Composable: Chain multiple operations
+
+Lazy: Computation is only performed when needed
+
+Parallelizable: Easy to run in parallel
+
+🔹 Stream Pipeline Structure
+
+A typical stream pipeline consists of:
+
+Source – Where the data comes from (e.g., a list)
+
+Intermediate Operations – Transformations (e.g., filter, map)
+
+Terminal Operation – Produces a result (e.g., collect, forEach)
+
+🔹 Example
+
+import java.util.*;
+import java.util.stream.*;
+
+public class StreamExample {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
+
+        List<String> filteredNames = names.stream()
+            .filter(name -> name.startsWith("A"))
+            .map(String::toUpperCase)
+            .collect(Collectors.toList());
+
+        System.out.println(filteredNames); // Output: [ALICE]
+    }
+}
+
+
+🔹 Common Stream Operations
+
+Operation Type	Method Examples					Description
+
+Intermediate	filter(), map(), sorted()		Transform the stream
+
+
+public class Example {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0; // This will throw ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero!");
+        } finally {
+            System.out.println("This block always executes.");
+        }
+    }
+}
+
+Terminal		collect(), forEach(), reduce()	Produce a result or side-effect
+
+Short-circuiting	limit(), anyMatch()			Stops processing early
+
+
+🔹 Collecting Results
+
+List<String> result = stream.collect(Collectors.toList());
+Set<String> resultSet = stream.collect(Collectors.toSet());
+String joined = stream.collect(Collectors.joining(", "));
+
+🔹 Parallel Streams
+
+
+list.parallelStream()
+    .filter(...)
+    .map(...)
+    .collect(...);
+
+
+This can improve performance for large datasets on multi-core processors.

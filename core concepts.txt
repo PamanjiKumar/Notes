@@ -1,0 +1,222 @@
+Core java is very difficult to build projects 
+
+So we went into the maven
+
+Maven has helped in building project dependencies(libraries).
+
+But Maven doesn't help in organising the code base and doesn't teach how to run fast.
+
+So we went again into spring to reduce the complexity.
+
+Spring adds structure , tools and features.
+
+In deeper level of coding spring takes a lot of time and we need to mention everything in the spring 
+
+So we went to spring boot
+	
+Spring boot helps in avoiding the boiler code it comes with the necessary code to kickstart the project
+
+Using spring boot we can create projects easily
+
+
+IoC And DI
+
+IoC-->Inversion of Control
+
+->Simply means inverting the control.
+
+-> Normally we need to create the object , control the application flow , destroying the object.
+
+->So we are giving the control over object to spring so we can focus on the business logic.
+
+DI--->Dependency Injection
+
+
+Spring
+
+It is a dependency injection framework
+
+It complients the java EE standards
+
+
+Architecture of the spring
+
+Spring contains 4 parts
+
+1)Core ->Core Module , Bean Module , Context Module , SpEL Module
+
+	Core Module --->Features like IOC(Inversion of Control) and Dependency Injection
+	Bean Module --->Implements Bean Factory a sophisticated factory pattern.
+	Context Module ---> Builds on Core and Beans, offering a medium to access configured objects.
+	SpEL Module --> Provides a powerful expression language for querying and manipulating object graphs.
+
+2)Data Access/Integration  -> JDBC , ORM , OXM , JMS , Transaction
+
+	JDBC Module: Simplifies database interactions by removing tedious JDBC coding.
+	ORM Module: Integrates with popular object-relational mapping APIs like Hibernate and JPA.
+	OXM Module: Supports Object/XML mapping implementations.
+	JMS Module: Enables message production and consumption.
+	Transaction Module: Supports declarative and programmatic transaction management.
+
+3)Web -> Module , MVC Module , Socket , Portlet 
+
+	Web Module: Provides basic web-oriented integration features.
+	Web-MVC Module: Implements Spring’s Model-View-Controller (MVC) framework.
+	Web-Socket Module: Supports WebSocket-based two-way communication.
+	Web-Portlet Module: Offers MVC implementation for portlet environments.
+
+4)Miscellaneous
+
+	AOP Module: Supports Aspect-Oriented Programming.
+	Instrumentation Module: Provides class instrumentation and monitoring.
+	Test Module: Supports unit and integration testing.
+
+** Container
+
+-->Container is a predefined program or component that comes with Spring
+
+-->It is responsible for creating the objects and maintaining the life cycle of the objects
+
+-->The container needs two things
+	
+	i)Beans or Java Classes
+
+	ii)XML configuration
+
+
+** Application Context
+
+-->It is an interface we cannot create instances of it.
+
+-->It has 3 types
+	
+	i)ClassPathXMLApplicationContext
+
+	ii)FileSystemXMLApplicationContext
+
+	iii)AnnotationConfigApplicationContext
+
+
+***Dependency Injection 
+
+-->It means injecting the values to the object during the run time dynamically and the spring container does it.
+
+-->We can do it in 2 types
+
+	i)Setter injection
+
+	ii)Constructor injection
+
+
+**** JavaAsAnConfigurationFile
+
+-->Normally we use xml file(Beans.xml) for the object creating and assigning it a value
+
+-->We can also use the .java file as an configuration file
+
+-->By taking an example of Car and Engine 
+
+-->In this example we will have Engine.java,Car.java , AppConfig.java and Main.java
+
+	i)In Engine.java we used start() method with string return type.
+
+	ii)In Car.java we will have private Engine eng  we use Car constructor and initialise eng and another start method.
+
+	iii)In AppConfig.java we will use the @Configuration Annotation to tell spring that it is a configuration file and @Bean Annotation to tell it is an object
+
+	and we will create two beans of Car and Engine.
+	
+	iv)In Main.java we will use ApplicationContext for AnnotationConfigApplicationContext(AppConfig.class) and create an instance of Car and implement method.
+
+	
+*****Autowiring
+
+      A -------> B
+
+An object A depends on object B to do its job then 
+
+	A--->Dependent Object
+
+	B--->Dependency
+
+The process of linking the dependent and dependency object is called Wiring.
+
+If the linking is done by the container itself then it is called Autowiring.
+
+
+Ex:We have taken an example of Samsung and its brand
+
+In this example we have taken Samsung.java ,A54.java , S24.java and Main.java
+
+	i)In Samsung.java we mentioned @Component Annotation and for constructor Samsung() we used @Autowired 
+	
+	ii)In S24.java mention @Component similar for A54 also.
+
+	iii)In Main.java we mention @Configuration to mention Main class as an configuration file and @ComponentScan(basePackages="") 
+
+
+Important Annotations
+
+@Autowired--> Automatically injects one bean into the another
+
+@Component--> Tells spring to create and manage the class as a Bean
+
+@ComponentScan--> Tells spring which package to search for @Component classes
+
+
+AOP(Aspect Oriented Programming)
+
+
+-->AOP stands for Aspect Oriented Programming.
+
+-->It is a way to separate cross cutting concerns like logging , security from the main business logic.
+
+-->It allows you to apply common behaviour before/after certain methods without repeating code.
+
+
+Key Concepts
+
+1)Aspect-->Common logic you want to apply
+
+2)Join Point-->A point in your code
+
+3)Advice-->What you want to do
+
+4)Pointcut-->Where you want to apply the advice
+
+5)Weaving-->Connecting the advice to the methods
+
+
+Important Annotations
+
+@Component
+@Service
+@Repository
+@Controller
+@EnableAspectJAutoProxy
+@Before("execution(* package.class.methodname(..))")
+@After("execution(* package.class.methodname(..))")
+@Aspect
+
+Example:Take 3 classes LoggingAspect.java,MobileService.java and Main.java
+
+LoggingAspect.java--->@Aspect and @Before and @After
+
+MobileService.java--->@Service method before / after the aspect methods work
+
+Main.java--->@EnableAspectJAutoProxy
+
+
+Hibernate
+
+
+Hibernate is a ORM framework
+
+ORM-->Object Relational Mapping
+
+Java is an ool when u build a application everything is an object.Every object has data and methods.
+
+In Jdbc we have to use lot of steps.
+
+Hibernate understands the object and tries to map the data in the object and creates a table.
+
